@@ -14,11 +14,15 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textView = (TextView) findViewById(R.id.ReceivedMessage);
 
-        Bundle b = getIntent().getExtras();
-        if(b!=null){
-            String myString = b.getString("Phigolf_UID");
-            Log.d("TestApp2", "=========== TestApp2 =============" + myString);
-            textView.setText(myString);
-        }
+//        Bundle b = getIntent().getExtras();
+//        if(b!=null){
+//            String myString = b.getString("Phigolf_UID");
+//            Log.d("TestApp2", "=========== TestApp2 =============" + myString);
+//            textView.setText(myString);
+//        }
+
+        UserDataReceiver pluginUser = new UserDataReceiver(this);
+        String message = pluginUser.getUserData();
+        textView.setText(message);
     }
 }
